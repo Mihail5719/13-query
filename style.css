@@ -1,0 +1,330 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --success: #22c55e;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --code-bg: #0b1220;
+  --border: #334155;
+  --input-bg: #1e293b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+pre code {
+  color: #e2e8f0;
+  font-family: 'Fira Code', monospace;
+}
+
+/* Формы и инпуты */
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.input-field:focus {
+  outline: 2px solid var(--accent);
+  border-color: transparent;
+}
+
+.input-field::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* Опции */
+.options {
+  margin: 16px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+/* Кнопки */
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+}
+
+.btn-ghost:hover {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+/* Результаты */
+.result-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.output-title {
+  margin: 16px 0 8px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.output-box {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 40px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  word-break: break-all;
+  transition: all 0.3s;
+}
+
+.output-box.success {
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.output-box.error {
+  color: var(--error);
+  border-color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.output-box.warning {
+  color: var(--warning);
+  border-color: var(--warning);
+  font-style: italic;
+}
+
+.url-box {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.url-box .placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+/* Примечания и примеры */
+.notes ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.notes li {
+  margin: 6px 0;
+}
+
+.examples .example-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.example-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: var(--code-bg);
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+}
+
+.example-item code {
+  color: var(--accent);
+}
+
+.example-item .result {
+  color: var(--success);
+  margin-left: auto;
+}
+
+.example-item .arrow {
+  color: var(--muted);
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+footer code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .example-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  .example-item .result {
+    margin-left: 0;
+  }
+}
+
+/* Анимация копирования */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.copied {
+  animation: pulse 0.3s ease-in-out;
+  color: var(--success) !important;
+}

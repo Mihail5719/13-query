@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЗ 13: Построение строки запроса</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 ДЗ 13: Query String Builder</h1>
+            <p class="subtitle">Студент: <strong>Iosif Goff</strong> • PurpleSchool • <time
+                    datetime="2026-05-15">15.05.2026</time></p>
+        </header>
+
+        <section class="card">
+            <h2>📋 Задание</h2>
+            <p>Напишите функцию, которая принимает объект с параметрами и возвращает строку формата
+                <code>key1=value1&key2=value2</code> для вставки в URL.
+            </p>
+            <pre><code>Input:  { search: 'Вася', take: 10 }
+Output: "search=Вася&take=10"</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>🧪 Интерактивный тест</h2>
+
+            <div class="input-group">
+                <label for="jsonInput">Введите объект в формате JSON:</label>
+                <textarea id="jsonInput" class="input-field" rows="4"
+                    placeholder='{"search": "Вася", "take": 10, "active": true}'>{"search": "Вася", "take": 10}</textarea>
+            </div>
+
+            <div class="options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="encodeToggle">
+                    <span>Кодировать значения (encodeURIComponent)</span>
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="runBuild()">🔗 Построить строку</button>
+                <button class="btn btn-secondary" onclick="copyResult()">📋 Копировать</button>
+                <button class="btn btn-ghost" onclick="clearAll()">🗑️ Очистить</button>
+            </div>
+
+            <div class="result-section">
+                <h3 class="output-title">Результат:</h3>
+                <div id="output" class="output-box">Нажмите «Построить строку» для проверки</div>
+
+                <h3 class="output-title">URL Preview:</h3>
+                <div id="urlPreview" class="url-box">https://example.com/api?<span class="placeholder">...</span></div>
+            </div>
+        </section>
+
+        <section class="card notes">
+            <h2>📝 Примечания</h2>
+            <ul>
+                <li>Функция поддерживает любые типы значений: строки, числа, булевы</li>
+                <li>При включённом кодировании спецсимволы преобразуются: <code>&</code> → <code>%26</code></li>
+                <li>Пустые, <code>null</code> и <code>undefined</code> значения автоматически фильтруются</li>
+                <li>Порядок ключей сохраняется как в исходном объекте</li>
+            </ul>
+        </section>
+
+        <section class="card examples">
+            <h2>💡 Примеры</h2>
+            <div class="example-grid">
+                <div class="example-item">
+                    <code>{"page": 1, "limit": 20}</code>
+                    <span class="arrow">→</span>
+                    <code class="result">page=1&limit=20</code>
+                </div>
+                <div class="example-item">
+                    <code>{"q": "a&b", "encode": true}</code>
+                    <span class="arrow">→</span>
+                    <code class="result">q=a%26b</code>
+                </div>
+                <div class="example-item">
+                    <code>{"name": "Вася", "active": true}</code>
+                    <span class="arrow">→</span>
+                    <code class="result">name=Вася&active=true</code>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>💡 Совет: для продакшена используйте <code>encode: true</code> для безопасной передачи спецсимволов</p>
+        </footer>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>
